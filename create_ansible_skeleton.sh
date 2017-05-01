@@ -21,7 +21,7 @@ PROJECT="$*"
 ROLE_PATH=roles/$PROJECT
 INVENTORY_PATH=inventory
 
-HOSTS=$INVENTORY_PATH/hosts
+HOSTS=hosts
 ANSIBLE_CFG=ansible.cfg
 
 FILES=files
