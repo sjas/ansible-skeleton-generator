@@ -48,7 +48,7 @@ STRING_VARS="$VARS : Role-related variable definitions go in here."
 
 
 # create directories, files and readmes
-mkdir $INVENTORY_PATH
+mkdir -p $INVENTORY_PATH
 echo "
 # $STRING_HOSTS
 #[group_1]
@@ -73,7 +73,7 @@ do
     DOCSTRING=STRING_$i
     LOCATION=$ROLE_PATH/$i
 
-    mkdir $LOCATION -p
+    [ ! -d $LOCATION ] && mkdir $LOCATION -p
     echo $DOCSTRING > $LOCATION/README.md
 done
 
