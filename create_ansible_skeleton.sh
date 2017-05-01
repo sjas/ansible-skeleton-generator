@@ -57,7 +57,7 @@ echo "
 " > $HOSTS_FILE && sed -i 1d $HOSTS_FILE
 
 echo "[defaults]
-hostfile = hosts
+hostfile = $HOSTS_FILE
 host_key_checking = False
 ansible_ssh_user = root
 ansible_ssh_port = 22
