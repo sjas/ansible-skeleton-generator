@@ -22,7 +22,7 @@ ROLE_PATH=roles/$PROJECT
 INVENTORY_PATH=inventory
 
 HOSTS=hosts
-ANSBIBLE_CFG=ansible.cfg
+ANSIBLE_CFG=ansible.cfg
 
 FILES=files
 HANDLERS=handlers
@@ -71,15 +71,16 @@ echo "# site.yml: The default playbook, all needed tasks should go in here.
 for i in $DEFAULTS $FILES $HANDLERS $META $TASKS $TEMPLATES $VARS
 do
     DOCSTRING=STRING_$i
-    README_LOCATION=$ROLE_PATH/$i
+    LOCATION=$ROLE_PATH/$i
 
-    mkdir $README_LOCATION -p
-    echo $DOCSTRING > $README_LOCATION/README.md
+    mkdir $LOCATION -p
+    echo $DOCSTRING > $LOCATION/README.md
 done
 
 for i in $DEFAULTS $HANDLERS $META $TASKS $VARS
 do
-    echo "# stubfile" > $i/main.yml
+    LOCATION=$ROLE_PATH/$i
+    echo "# stubfile" > $LOCATION/main.yml
 done
 
-echo "# stubfile" > $TEMPLATES/destination-filename.ext.j2
+echo "# stubfile" > $ROLE_PATH/$TEMPLATES/destination-filename.ext.j2
